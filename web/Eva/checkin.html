@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="../Photos/whiteLogo.png">
+  <title>Hotel Eva</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="../Stylize/css/style.css">
+  <link rel="stylesheet" href="../Stylize/css/newStyle.css">
+  <link rel="stylesheet" href="../Stylize/css/newStyle.min.css">
+  <link rel="stylesheet" href="../Stylize/css/newStyle-theme.css">
+  <link rel="stylesheet" href="../Stylize/css/newStyle-theme.min.css">
+  <script src="../Stylize/js/newStyle.js"></script>
+  <script src="../Stylize/js/jquery-3.2.1.js"></script>
+  <script src="../Stylize/js/newStyle.min.js"></script>
+  <style>
+      body{
+         background-color: black;
+      }
+      
+      body::-webkit-scrollbar { 
+       display: none; 
+      }
+      
+    *[role="form"] {
+    max-width: 530px;
+    padding: 15px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 0.3em;
+}
+
+
+
+
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse navbar-static-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="./welcome.jsp">
+      	<img width="45px" style="margin-top: -7px;" src="../Photos/whiteLogo.png" alt="KGH">
+      </a>
+    </div>
+    <p class="navbar-text" style="color: white;">Hotel Eva - Check In</p>
+  </div>
+</nav>
+<br>
+<center>
+<div class="jumbotron" style="width:80%; background-color: black; color: #950740; ">
+    <div class="container">
+        <form name="reg" method="post" onSubmit="return check(reg)" class="form-horizontal" role="form" action="./registerCustomer.jsp">
+                <h3>Registration Form</h3><br>
+                <div class="form-group">
+                    <label for="firstName" class="col-sm-3 control-label">Full Name</label>
+                    <div class="col-sm-9">
+                        <input type="text" name="name" placeholder="Full Name" class="form-control" autofocus>
+                        <p id="nameE" style="display: none; color:red; text-align: left; padding-left: 1px; padding-top: 1px; font-size: 11px;">Enter the customer name</p>
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label for="aadhaar" class="col-sm-3 control-label">Aadhaar/Passport</label>
+                    <div class="col-sm-9">
+                        <input type="number" name="aadhaar" placeholder="12-Digit / 9-Digit" class="form-control">
+                        <p id="aadhaarE" style="display: none;color:red; text-align: left; padding-left: 1px; padding-top: 1px; font-size: 11px;">Enter valid Aadhaar number</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="col-sm-3 control-label">Email ID</label>
+                    <div class="col-sm-9">
+                        <input type="email" name="email" placeholder="Email" class="form-control">
+                        <p id="mailE" style="display: none;color:red; text-align: left; padding-left: 1px; padding-top: 1px; font-size: 11px;">Enter valid Email ID</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="phone" class="col-sm-3 control-label">Phone</label>
+                    <div class="col-sm-9">
+                        <input type="number" name="phone" placeholder="Phone" class="form-control">
+                        <p id="phoneE" style="display: none;color:red; text-align: left; padding-left: 1px; padding-top: 1px; font-size: 11px;">Enter valid 10-digit phone number</p>
+                    </div>
+                </div>
+               <div class="form-group">
+                    <label for="pin" class="col-sm-3 control-label">Residency Pincode</label>
+                    <div class="col-sm-9">
+                        <input type="number" name="pin" placeholder="6-Digit Pincode" class="form-control">
+                        <p id="pinE" style="display: none;color:red; text-align: left; padding-left: 1px; padding-top: 1px; font-size: 11px;">Enter valid 6-digit PIN</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="gender" class="col-sm-3 control-label">Gender</label>   
+                    
+                    <input type="radio" name="gender" value="male" checked> Male &nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="gender" value="female"> Female &nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="gender" value="other"> Other   
+                    <p id="genderE" style="display: none;color:red; text-align: center; padding-left: 1px; padding-top: 1px; font-size: 11px;">Choose one</p>
+                </div>
+                <hr>
+                <div class="form-group">
+                    <label for="room" class="col-sm-3 control-label">Room Type</label>
+                    <div class="col-sm-9">
+                        <select name="room" class="form-control">
+                            <option value="Twin">Twin</option>
+                            <option value="Master Suite">Master Suite</option>
+                            <option value="King">King</option>
+                            <option disabled>Presidential</option>
+                            <option disabled>Roof Top glass</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="roomNo" class="col-sm-3 control-label">Room </label>
+                    <div class="col-sm-9">
+                        <input type="number" name="roomNo" placeholder="Room Number" class="form-control">
+                        <p id="roomE" style="display: none;color:red; text-align: left; padding-left: 1px; padding-top: 1px; font-size: 11px;">Enter valid room number</p>
+                    </div>
+                </div>
+                <!--div class="form-group">
+                    <label for="checkIn" class="col-sm-3 control-label">Check In Time</label>
+                    <div class="col-sm-9">
+                        <input type="datetime-local" name="checkIn" class="form-control">
+                        <p id="nameE" style="display: none;color:red; text-align: left; padding-left: 1px; padding-top: 1px; font-size: 11px;">Enter valid time</p>
+                    </div>
+                </div-->
+                <!-- /.form-group -->
+                  
+                <div class="form-group">
+                    <div class="col-sm-9 col-sm-offset-3">
+                        <button type="submit" class="btn btn-primary btn-block">Register</button>
+                    </div>
+                </div>
+            </form> <!-- /form -->
+        </div> <!-- ./container -->   
+        <br>
+        <div style="color: white; ">
+            <strong>Room Numbers</strong> <br>
+            <br>
+            Twin: 001 - 080<br>
+            King: 100 - 175<br>
+            Master Suite: 200 - 230<br>
+            
+        </div>
+</div>   
+</center>
+<script>
+    
+      
+    function check(myform){
+        var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+        var ph = /[1-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]/;
+        var pi = /[0-9][0-9][0-9][0-9][0-9][0-9]/;
+                
+        if(myform.name.value == "" || myform.name.value == null){
+                $("#nameE").show();
+            return false;
+        }
+        else
+             $("#nameE").hide();
+        if(myform.aadhaar.value<100000000 || myform.aadhaar.value>999999999999){
+               $("#aadhaarE").show();
+            return false;
+        }
+        else
+            $("#aadhaarE").hide();
+        if(re.test(myform.email.value)==false){
+                $("#mailE").show();
+            return false;
+        }
+        else
+            $("#mailE").hide();
+        if(ph.test(myform.phone.value)==false){
+                $("#phoneE").show();
+                return false;
+        }
+        else
+            $("#phoneE").hide();
+        if(pi.test(myform.pin.value)==false){
+                $("#pinE").show();
+                return false;
+        }
+        else
+            $("#pinE").hide();
+        if(myform.room.value == "Twin"){
+            if(myform.roomNo.value < 1 || myform.roomNo.value > 80)
+            { 
+                $("#roomE").show();
+                return false;
+            } 
+            else
+                $("#roomE").hide();
+        }
+        if(myform.room.value == "Master Suite"){
+            if(myform.roomNo.value < 200 || myform.roomNo.value > 230)
+            {
+                $("#roomE").show();
+                return false;
+            }
+            else
+                $("#roomE").hide();
+        }
+        if(myform.room.value == "King"){
+            if(myform.roomNo.value < 100 || myform.roomNo.value > 175)
+            {
+                $("#roomE").show();
+                return false;
+            }
+            else
+                $("#roomE").hide();
+        }
+        
+    }
+    
+
+</script>    
+
+</body>
+</html>

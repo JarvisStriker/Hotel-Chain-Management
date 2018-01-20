@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="icon" type="image/png" href="Photos/logo.png">
+  <title>Kushal Group of Hotels</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="Stylize/css/style.css">
+  <link rel="stylesheet" href="Stylize/css/newStyle.css">
+  <link rel="stylesheet" href="Stylize/css/newStyle-theme.css">
+  <script src="Stylize/js/newStyle.js"></script>
+  <script src="Stylize/js/jquery-3.2.1.js"></script>
+  
+</head>
+<body>
+
+<nav class="navbar navbar-inverse navbar-static-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="index.html">
+      	<img width="45px" style="margin-top: -7px;" src="Photos/whiteLogo.png" alt="KGH">
+      </a>
+    </div>
+    <p class="navbar-text" style="color: white;">Kushal Group of Hotels - Login Page</p>
+  </div>
+</nav>
+
+
+<br>
+<center>
+
+ <div style="border: 1px solid black; background-color: #454140;" class=" col-md-4 col-md-offset-4">
+ <h3 style="color: white;">Login</h3><br>
+
+ <form name="log" onSubmit="return check(log)" action="login.jsp" method="post">
+                <input type="text" placeholder="Staff ID" name="usr" autofocus><br>
+                <p id="usrE" style="color:red; text-align: left; padding-left: 116px; font-size: 11px; display: none;">Enter ID</p><br>
+                <input type="password" placeholder="Password" name="pwd"><br>
+                <p id="pwdE" style="color:red; text-align: left; padding-left: 116px; font-size: 11px; display: none;">Enter Password</p><br>
+                <button  class="btn-primary btn-md" style="padding: 8px;" type="submit">
+                    Sign in</button><br><br>
+                    <br><br>
+                    <center>
+                        <p style="color: white;">Note : In case of new staff ID, <br> or any problems with password<br>
+                            <br><strong>Contact KGH WebD Admin</strong></p>
+                        <br>
+                    </center>
+ </form>
+</div>
+</center>
+
+<script>
+    function check(log){
+        if(log.usr.value == "" || log.usr.value == null)
+        {
+            $("#usrE").show();
+            return false;
+        }
+        if(log.pwd.value == "" || log.pwd.value == null)
+        {
+            $("#pwdE").show();
+            return false;
+        }
+       
+    }
+        
+
+    
+
+</script>
+    
+</body>
+</html>
